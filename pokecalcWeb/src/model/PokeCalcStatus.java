@@ -15,6 +15,7 @@ public class PokeCalcStatus implements Serializable{
 	private double typeMatch;
 	private double typeCong;
 	private double doubleDamage;
+	private double damageUp;
 
 	public void setAtkLevel(int atkLevel) {
 		this.atkLevel = atkLevel;
