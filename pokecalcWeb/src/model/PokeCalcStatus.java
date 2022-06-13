@@ -51,6 +51,10 @@ public class PokeCalcStatus implements Serializable{
 		this.doubleDamage = doubleDamage;
 	}
 
+	public void setDamageUp(double damageUp) {
+		this.damageUp = damageUp;
+	}
+
 	public int getAtkLevel() {
 		return this.atkLevel;
 	}
@@ -85,6 +89,9 @@ public class PokeCalcStatus implements Serializable{
 
 	public double getDoubleDamage() {
 		return this.doubleDamage;
+	}
+	public double getDamageUp() {
+		return this.damageUp;
 	}
 
 
