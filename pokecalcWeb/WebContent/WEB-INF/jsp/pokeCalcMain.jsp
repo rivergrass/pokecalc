@@ -33,6 +33,11 @@
 		<label><input type="radio" name="cong" value="4">ばつぐん(4)</label><br><br>
 		ダメージ: <label><input type="radio" name="damage" value="0" >シングル(1.0)</label>
 		<label><input type="radio" name="damage" value="1" checked ="checked">ダブル(0.75)</label>
+		アイテム補正：<label><input type="radio" name="atkitem" value="0"  checked ="checked">なし</label>
+		<label><input type="radio" name="atkitem" value="1">1.1</label>
+		<label><input type="radio" name="atkitem" value="2" >1.2</label>
+		<label><input type="radio" name="atkitem" value="3">1.3</label>
+		<label><input type="radio" name="atkitem" value="4">1.5</label><br><br>
 		<input type="reset" value="リセット">
 		<input type="submit" value="計算実行">
 		</form>
