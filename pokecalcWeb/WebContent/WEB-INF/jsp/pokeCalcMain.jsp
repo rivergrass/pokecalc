@@ -31,8 +31,8 @@
 		<label><input type="radio" name="cong" value="2"  checked ="checked">等倍(1)</label>
 		<label><input type="radio" name="cong" value="3">ばつぐん(2)</label>
 		<label><input type="radio" name="cong" value="4">ばつぐん(4)</label><br><br>
-		ダメージ: <label><input type="radio" name="damage" value="0" checked ="checked">シングル(1.0)</label>
-		<label><input type="radio" name="damage" value="1">ダブル(0.75)</label>
+		ダメージ: <label><input type="radio" name="damage" value="0" >シングル(1.0)</label>
+		<label><input type="radio" name="damage" value="1" checked ="checked">ダブル(0.75)</label>
 		<input type="reset" value="リセット">
 		<input type="submit" value="計算実行">
 		</form>
