@@ -8,8 +8,8 @@ public class PokeCalcLogic {
 		int level = (int)pcs.getAtkLevel()*2/5+2;
 		int move = (int)pcs.getMove()*pcs.getAtk()/pcs.getDef();
 		int levelMove=(int)level*move/50+2;
-		//最大値を計算
-		double totalDamage = levelMove * pcs.getTypeMatch()*pcs.getTypeCong();
+		//最大値を計算(火力補正は簡易版）
+		double totalDamage = levelMove * pcs.getTypeMatch()*pcs.getTypeCong()*pcs.getDamageUp();
 
 		//ダブルダメージの処理
 		if(pcs.getDoubleDamage() == 0.75) {

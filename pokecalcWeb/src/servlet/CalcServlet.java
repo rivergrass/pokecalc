@@ -40,6 +40,7 @@ public class CalcServlet extends HttpServlet {
 		String match = request.getParameter("match");
 		String cong = request.getParameter("cong");
 		String doubleDamage = request.getParameter("damage");
+		String atkItem =request.getParameter("atkitem");
 
 		//ダメージ計算に必要な数値をint型、double型に格納
 
@@ -77,6 +78,18 @@ public class CalcServlet extends HttpServlet {
 			pcs.setDoubleDamage(1.0);
 		}else if(doubleDamage.equals("1")) {
 			pcs.setDoubleDamage(0.75);
+		}
+
+		if(atkItem.equals("0")){
+			pcs.setDamageUp(1.0);
+		}else if(atkItem.equals("1")) {
+			pcs.setDamageUp(1.1);
+		}else if(atkItem.equals("2")) {
+			pcs.setDamageUp(1.2);
+		}else if(atkItem.equals("3")) {
+			pcs.setDamageUp(1.3);
+		}else if(atkItem.equals("4")) {
+			pcs.setDamageUp(1.5);
 		}
 
 		//ダメージの計算

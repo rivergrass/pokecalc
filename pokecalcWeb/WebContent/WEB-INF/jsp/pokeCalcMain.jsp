@@ -42,7 +42,7 @@
 		<input type="submit" value="計算実行">
 		</form>
 		<br>
-		<fieldset style="width:300px">
+		<fieldset style="width:400px">
 		<legend>計算結果</legend>
 		<p><%= damage %><br>
 		</p>
