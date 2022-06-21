@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
    <%
    String damage = (String)request.getAttribute("damage");
    if(damage==null){
@@ -24,7 +25,7 @@
 <h1>ポケモン簡易ダメージ計算</h1>
 
 <div class="container-fluid">
-	<form action="/pokecalcWeb/calc" method="post">
+	<form action="/pokecalc/calc" method="post">
 
 	<div class="w-25">
 		<div class="form-group">
