@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
    <%
    String damage = (String)request.getAttribute("damage");
    if(damage==null){
@@ -17,43 +18,169 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <title>ダメージ計算</title>
 </head>
 <body>
 <h1>ポケモン簡易ダメージ計算</h1>
-<form action="/pokecalcWeb/calc" method="post">
 
-		攻撃側レベル&nbsp;<input type="number" name="atLv" value = "50" min = "1" style="width:40px" required><br>
-		技威力&emsp;&emsp;&emsp;
-		<input type="number" name="move" value = "100" min = "1" style="width:40px" required><br>
-		攻撃or特攻&emsp;&nbsp;<input type="number" name="atk" value = "182" min = "1" style="width:40px" required><br><br>
-		防御側レベル&nbsp;<input type="number" name="dfLv" value = "50"  min = "1" style="width:40px" required><br>
-		HP&emsp;&emsp;&emsp;&emsp;&emsp;<input type="number" name="hp" value = "145" style="width:40px" required><br>
-		防御or特防&emsp;&nbsp;<input type="number" name="def" value = "95" min = "1" style="width:40px" required><br><br>
-		一致: <label><input type="radio" name="match" value="0" >不一致(1.0)</label>
-		<label><input type="radio" name="match" value="1"checked ="checked">一致(1.5)</label>
-		<label><input type="radio" name="match" value="2">適応力(2.0)</label><br>
-		相性:<label><input type="radio" name="cong" value="0">いまひとつ(1/4)</label>
-		<label><input type="radio" name="cong" value="1">いまひとつ(1/2)</label>
-		<label><input type="radio" name="cong" value="2"  checked ="checked">等倍(1)</label>
-		<label><input type="radio" name="cong" value="3">ばつぐん(2)</label>
-		<label><input type="radio" name="cong" value="4">ばつぐん(4)</label><br><br>
-		ダメージ: <label><input type="radio" name="damage" value="0" >シングル(1.0)</label>
-		<label><input type="radio" name="damage" value="1" checked ="checked">ダブル(0.75)</label>
-		アイテム補正：<label><input type="radio" name="atkitem" value="0"  checked ="checked">なし</label>
-		<label><input type="radio" name="atkitem" value="1">1.1</label>
-		<label><input type="radio" name="atkitem" value="2" >1.2</label>
-		<label><input type="radio" name="atkitem" value="3">1.3</label>
-		<label><input type="radio" name="atkitem" value="4">1.5</label><br><br>
-		<input type="reset" value="リセット">
-		<input type="submit" value="計算実行">
-		</form>
-		<br>
-		<fieldset style="width:400px">
-		<legend>計算結果</legend>
-		<p><%= damage %><br>
-		</p>
-		</fieldset>
+<div class="container-fluid">
+	<form action="/pokecalc/calc" method="post">
+
+	<div class="w-25">
+		<div class="form-group">
+			<label>攻撃側レベル</label>
+			<input type="number" name="atLv" id ="atLv" value = "50"  min = "1" class="form-control" required>
+		</div>
+	</div>
+
+	<div class="w-25">
+		<div class="form-group">
+			<label>技威力</label>
+			<input type="number" name="move" id ="move" value = "100"  min = "1" class="form-control" required>
+		</div>
+	</div>
+
+	<div class="w-25">
+		<div class="form-group">
+			<label>攻撃or特攻</label>
+			<input type="number" name="atk" id ="atk" value = "182"  min = "1" class="form-control" required>
+		</div>
+	</div>
+
+	<div class="w-25">
+		<div class="form-group">
+			<label>防御側レベル</label>
+			<input type="number" name="dfLv" id ="dfLv" value = "50"  min = "1" class="form-control" required>
+		</div>
+	</div>
+
+	<div class="w-25">
+		<div class="form-group">
+			<label>HP</label>
+			<input type="number" name="hp" id ="hp" value = "145"  min = "1" class="form-control" required>
+		</div>
+	</div>
+
+	<div class="w-25">
+		<div class="form-group">
+			<label>防御or特防</label>
+			<input type="number" name="def" id ="def" value = "95"  min = "1" class="form-control" required>
+		</div>
+	</div>
+
+<header>タイプ一致</header>
+	<div class="form-check form-check-inline">
+  		<input class="form-check-input" type="radio" name="match" id="match1" value = "0">
+  		<label class="form-check-label" for="match1">
+    不一致(1.0)
+ 		</label>
+	</div>
+	<div class="form-check form-check-inline">
+  		<input class="form-check-input" type="radio" name="match" id="match2" value = "1" checked>
+  		<label class="form-check-label" for="match2">
+    一致(1.5)
+  		</label>
+	</div>
+	<div class="form-check form-check-inline">
+ 		 <input class="form-check-input" type="radio" name="match" id="match3"  value = "2">
+ 		 <label class="form-check-label" for="match3">
+    適応力(2.0)
+  		</label>
+	</div>
+
+	<header>相性</header>
+	<div class="form-check form-check-inline">
+  		<input class="form-check-input" type="radio" name="cong" id="cong1" value = "0">
+  		<label class="form-check-label" for="cong1">
+    いまひとつ(1/4)
+ 		</label>
+	</div>
+	<div class="form-check form-check-inline">
+  		<input class="form-check-input" type="radio" name="cong" id="cong2" value = "1" >
+  		<label class="form-check-label" for="cong2">
+    いまひとつ(1/2)
+  		</label>
+	</div>
+	<div class="form-check form-check-inline">
+ 		 <input class="form-check-input" type="radio" name="cong" id="cong3"  value = "2" checked>
+ 		 <label class="form-check-label" for="cong3">
+    等倍(1)
+  		</label>
+	</div>
+	<div class="form-check form-check-inline">
+ 		 <input class="form-check-input" type="radio" name="cong" id="cong4"  value = "3">
+ 		 <label class="form-check-label" for="cong4">
+    ばつぐん(2)
+  		</label>
+	</div>
+	<div class="form-check form-check-inline">
+ 		 <input class="form-check-input" type="radio" name="cong" id="cong5"  value = "4">
+ 		 <label class="form-check-label" for="cong5">
+    ばつぐん(4)
+  		</label>
+	</div>
+
+	<header>ダメージ</header>
+	<div class="form-check form-check-inline">
+  		<input class="form-check-input" type="radio" name="damage" id="damage1" value = "0">
+  		<label class="form-check-label" for="damage1">
+    シングル(1.0)
+ 		</label>
+	</div>
+	<div class="form-check form-check-inline">
+  		<input class="form-check-input" type="radio" name="damage" id="damage2" value = "1" checked>
+  		<label class="form-check-label" for="damage2">
+    ダブル(0.75)
+  		</label>
+	</div>
+
+	<header>アイテム補正</header>
+	<div class="form-check form-check-inline">
+  		<input class="form-check-input" type="radio" name="atkitem" id="atkitem1" value = "0">
+  		<label class="form-check-label" for="atkitem1">
+    なし
+ 		</label>
+	</div>
+	<div class="form-check form-check-inline">
+  		<input class="form-check-input" type="radio" name="atkitem" id="atkitem2" value = "1" >
+  		<label class="form-check-label" for="atkitem2">
+    1.1
+  		</label>
+	</div>
+	<div class="form-check form-check-inline">
+ 		 <input class="form-check-input" type="radio" name="atkitem" id="atkitem3"  value = "2" checked>
+ 		 <label class="form-check-label" for="atkitem3">
+    1.2
+  		</label>
+	</div>
+	<div class="form-check form-check-inline">
+ 		 <input class="form-check-input" type="radio" name="atkitem" id="atkitem4"  value = "3">
+ 		 <label class="form-check-label" for="atkitem4">
+    1.3
+  		</label>
+	</div>
+	<div class="form-check form-check-inline">
+ 		 <input class="form-check-input" type="radio" name="atkitem" id="atkitem5"  value = "4">
+ 		 <label class="form-check-label" for="atkitem5">
+    1.5
+  		</label>
+	</div>
+
+		 <button type="reset" class="btn btn-primary">リセット</button>
+		 <button type="submit" class="btn btn-primary">計算実行</button>
+	</form>
+</div>
+
+
+<div class="border col-5">
+        <br>
+        <h2>計算結果</h2>
+        <p><%= damage %></p>
+        <br>
+</div>
+
+
 
 </body>
 </html>

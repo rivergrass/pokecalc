@@ -19,10 +19,11 @@ public class PokeCalcLogic {
 		//最小値を計算(乱数の範囲は*0.85～*1.00)
 		double damageUnder =totalDamage*0.85;
 
-
 		//hpの割合を計算(最大hpの何%分のダメージか)
-		double damageMax =100*(totalDamage/pcs.getHp());
-		double damageMin =100*(damageUnder/pcs.getHp());
+		double damageMax =100*(Math.floor(totalDamage)/pcs.getHp());
+		double damageMin =100*(Math.floor(damageUnder)/pcs.getHp());
+
+
 
 		//結果を文章として格納
 		result=(int)damageUnder+"～"+(int)totalDamage+"ダメージ("+String.format("%.2f",damageMin)+"%～"+String.format("%.2f",damageMax)+"%)";
