@@ -137,7 +137,7 @@
 
 	<header>アイテム補正</header>
 	<div class="form-check form-check-inline">
-  		<input class="form-check-input" type="radio" name="atkitem" id="atkitem1" value = "0">
+  		<input class="form-check-input" type="radio" name="atkitem" id="atkitem1" value = "0" checked>
   		<label class="form-check-label" for="atkitem1">
     なし
  		</label>
@@ -149,21 +149,33 @@
   		</label>
 	</div>
 	<div class="form-check form-check-inline">
- 		 <input class="form-check-input" type="radio" name="atkitem" id="atkitem3"  value = "2" checked>
+ 		 <input class="form-check-input" type="radio" name="atkitem" id="atkitem3"  value = "2" >
  		 <label class="form-check-label" for="atkitem3">
-    1.2
+    1.2(タイプ強化系)
   		</label>
 	</div>
 	<div class="form-check form-check-inline">
- 		 <input class="form-check-input" type="radio" name="atkitem" id="atkitem4"  value = "3">
+ 		 <input class="form-check-input" type="radio" name="atkitem" id="atkitem4"  value = "3" >
  		 <label class="form-check-label" for="atkitem4">
-    1.3
+    1.2(達人の帯)
   		</label>
 	</div>
 	<div class="form-check form-check-inline">
  		 <input class="form-check-input" type="radio" name="atkitem" id="atkitem5"  value = "4">
  		 <label class="form-check-label" for="atkitem5">
+    1.3
+  		</label>
+	</div>
+	<div class="form-check form-check-inline">
+ 		 <input class="form-check-input" type="radio" name="atkitem" id="atkitem6"  value = "5">
+ 		 <label class="form-check-label" for="atkitem6">
     1.5
+  		</label>
+	</div>
+		<div class="form-check form-check-inline">
+ 		 <input class="form-check-input" type="radio" name="atkitem" id="atkitem7"  value = "6">
+ 		 <label class="form-check-label" for="atkitem7">
+    2.0
   		</label>
 	</div>
 

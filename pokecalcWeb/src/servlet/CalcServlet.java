@@ -87,9 +87,13 @@ public class CalcServlet extends HttpServlet {
 		}else if(atkItem.equals("2")) {
 			pcs.setDamageUp(1.2);
 		}else if(atkItem.equals("3")) {
-			pcs.setDamageUp(1.3);
+			pcs.setDamageUp(1.21);
 		}else if(atkItem.equals("4")) {
+			pcs.setDamageUp(1.3);
+		}else if(atkItem.equals("5")) {
 			pcs.setDamageUp(1.5);
+		}else if(atkItem.equals("6")) {
+			pcs.setDamageUp(2.0);
 		}
 
 		//ダメージの計算
