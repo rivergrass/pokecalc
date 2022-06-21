@@ -35,8 +35,8 @@ public class PokeCalcLogic {
 		int move = (int)moveValue*atk/pcs.getDef();
 		int levelMove=(int)level*move/50+2;
 
-		//最大値を計算(火力補正は簡易版）
-		double totalDamage = levelMove * pcs.getTypeMatch()*pcs.getTypeCong()*pcs.getDamageUp();
+		//最大値を計算
+		double totalDamage = levelMove * pcs.getTypeMatch()*pcs.getTypeCong();
 
 		//ダメージに補正が乗るアイテムの計算
 		if(pcs.getDamageUp() == 1.21) {//帯
