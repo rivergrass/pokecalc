@@ -41,6 +41,7 @@ public class CalcServlet extends HttpServlet {
 		String cong = request.getParameter("cong");
 		String doubleDamage = request.getParameter("damage");
 		String atkItem =request.getParameter("atkitem");
+		String helphands =request.getParameter("helphands");
 
 		//ダメージ計算に必要な数値をint型、double型に格納
 
@@ -81,19 +82,27 @@ public class CalcServlet extends HttpServlet {
 		}
 
 		if(atkItem.equals("0")){
-			pcs.setDamageUp(1.0);
+			pcs.setDamageUpItem(1.0);
 		}else if(atkItem.equals("1")) {
-			pcs.setDamageUp(1.1);
+			pcs.setDamageUpItem(1.1);
 		}else if(atkItem.equals("2")) {
-			pcs.setDamageUp(1.2);
+			pcs.setDamageUpItem(1.2);
 		}else if(atkItem.equals("3")) {
-			pcs.setDamageUp(1.21);
+			pcs.setDamageUpItem(1.21);
 		}else if(atkItem.equals("4")) {
-			pcs.setDamageUp(1.3);
+			pcs.setDamageUpItem(1.3);
 		}else if(atkItem.equals("5")) {
-			pcs.setDamageUp(1.5);
+			pcs.setDamageUpItem(1.5);
 		}else if(atkItem.equals("6")) {
-			pcs.setDamageUp(2.0);
+			pcs.setDamageUpItem(2.0);
+		}
+
+		if(helphands.equals("0")) {
+			pcs.setHelphands(1.0);
+		}else if(helphands.equals("1")) {
+			pcs.setHelphands(1.5);
+		}else if(helphands.equals("2")){
+			pcs.setHelphands(2.25);
 		}
 
 		//ダメージの計算

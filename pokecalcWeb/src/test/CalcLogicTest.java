@@ -1,10 +1,34 @@
-package model;
+package test;
 
-public class PokeCalcLogic {
-	String result;
-	int atk;
-	double moveValue;
+import model.PokeCalcStatus;
+
+public class CalcLogicTest {
+
+	public static void main(String[] args) {
+		// TODO 自動生成されたメソッド・スタブ
+		PokeCalcStatus pcs = new PokeCalcStatus();
+		CalcLogicTest clt = new CalcLogicTest();
+		pcs.setAtkLevel(50);
+		pcs.setMove(100);
+		pcs.setAtk(182);
+		pcs.setDefLevel(50);
+		pcs.setHp(145);
+		pcs.setDef(95);
+		pcs.setTypeMatch(1);
+		pcs.setTypeCong(1.5);
+		pcs.setDoubleDamage(0.75);
+		pcs.setDamageUpItem(1);
+		pcs.setHelphands(1.5);
+
+		System.out.println(clt.calc(pcs));
+
+	}
+
+
 	public String calc(PokeCalcStatus pcs) {
+		String result;
+		int atk;
+		double moveValue;
 		//ダメージ計算
 
 		//各種アイテム補正（ダメージに倍率がかかるもの以外）
@@ -80,4 +104,5 @@ public class PokeCalcLogic {
 
 		return result;
 	}
+
 }

@@ -27,48 +27,67 @@
 <div class="container-fluid">
 	<form action="/pokecalc/calc" method="post">
 
-	<div class="w-25">
+<div class="row">
+    <div class="col">
+	<div class="mh-auto" style="width:100px; height:80px;">
 		<div class="form-group">
 			<label>攻撃側レベル</label>
 			<input type="number" name="atLv" id ="atLv" value = "50"  min = "1" class="form-control" required>
 		</div>
 	</div>
+	</div>
 
-	<div class="w-25">
+    <div class="col">
+	<div class="mh-auto" style="width:100px; height:80px;">
 		<div class="form-group">
 			<label>技威力</label>
 			<input type="number" name="move" id ="move" value = "100"  min = "1" class="form-control" required>
 		</div>
 	</div>
+</div>
 
-	<div class="w-25">
+<div class="col">
+	<div class="mh-auto" style="width:100px; height:80px;">
 		<div class="form-group">
 			<label>攻撃or特攻</label>
 			<input type="number" name="atk" id ="atk" value = "182"  min = "1" class="form-control" required>
 		</div>
 	</div>
+	</div>
 
-	<div class="w-25">
+	<div class="col">
+	<div class="mh-auto" style="width:100px; height:80px;">
 		<div class="form-group">
 			<label>防御側レベル</label>
 			<input type="number" name="dfLv" id ="dfLv" value = "50"  min = "1" class="form-control" required>
 		</div>
 	</div>
+	</div>
 
-	<div class="w-25">
+	<div class="col">
+	<div class="mh-auto" style="width:100px; height:80px;">
 		<div class="form-group">
 			<label>HP</label>
 			<input type="number" name="hp" id ="hp" value = "145"  min = "1" class="form-control" required>
 		</div>
 	</div>
-
-	<div class="w-25">
+	</div>
+	<div class="col">
+	<div class="mh-auto" style="width:100px; height:80px;">
 		<div class="form-group">
 			<label>防御or特防</label>
 			<input type="number" name="def" id ="def" value = "95"  min = "1" class="form-control" required>
 		</div>
 	</div>
+	</div>
+		</div>
 
+<br>
+	<div>
+		 <button type="reset" class="btn btn-primary">リセット</button>
+		 <button type="submit" class="btn btn-primary">計算実行</button>
+	</div>
+<br>
 <header>タイプ一致</header>
 	<div class="form-check form-check-inline">
   		<input class="form-check-input" type="radio" name="match" id="match1" value = "0">
@@ -179,20 +198,50 @@
   		</label>
 	</div>
 
-		 <button type="reset" class="btn btn-primary">リセット</button>
-		 <button type="submit" class="btn btn-primary">計算実行</button>
+	<header>てだすけ</header>
+	<div class="form-check form-check-inline">
+  		<input class="form-check-input" type="radio" name="helphands" id="helphands1" value = "0" checked>
+  		<label class="form-check-label" for="helphands1">
+   	なし
+ 		</label>
+	</div>
+	<div class="form-check form-check-inline">
+  		<input class="form-check-input" type="radio" name="helphands" id="helphands2" value = "1" >
+  		<label class="form-check-label" for="helphands2">
+     あり(1.5)
+  		</label>
+	</div>
+		<div class="form-check form-check-inline">
+  		<input class="form-check-input" type="radio" name="helphands" id="helphands3" value = "2" >
+  		<label class="form-check-label" for="helphands3">
+     重ね掛け(2.25)（トリプル用）
+  		</label>
+	</div>
+
 	</form>
 </div>
-
-
-<div class="border col-5">
+<br><br>
+<div class="container">
+  <div class="row">
+    <div class="col">
+<div class="border col-10 w-75">
         <br>
-        <h2>計算結果</h2>
-        <p><%= damage %></p>
+        <h2>&nbsp;計算結果</h2>
+        <p>&nbsp;<%= damage %></p>
         <br>
 </div>
+</div>
+</div>
+</div>
 
+<br>
 
+<!-- フッタ -->
+<footer class="footer mt-auto py-3  bg-dark w-100">
+  <div class="container">
+    <span class="text-white">Develop by rivergrass.</span>
+  </div>
+</footer>
 
 </body>
 </html>
