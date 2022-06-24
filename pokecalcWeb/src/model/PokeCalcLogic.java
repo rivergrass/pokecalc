@@ -4,6 +4,9 @@ public class PokeCalcLogic {
 	String result;
 	int atk;
 	double moveValue;
+	String randomDamageResult;
+	String allRandomDamage = "";
+
 	public String calc(PokeCalcStatus pcs) {
 		//ダメージ計算
 
@@ -27,7 +30,6 @@ public class PokeCalcLogic {
 
 
 		//フィールド
-
 
 
 		//攻撃力にバフがかかる（持ち物）
@@ -97,9 +99,19 @@ public class PokeCalcLogic {
 		double damageMax =100*(Math.floor(totalDamage)/pcs.getHp());
 		double damageMin =100*(Math.floor(damageUnder)/pcs.getHp());
 
+		//取りうるすべてのダメージを表示
+		for(double i=0.85 ; i <= 1 ; i+=0.01) {
+			int randomDamage = (int)Math.floor(totalDamage*i);
+			allRandomDamage += randomDamage+" ";
+		}
+		randomDamageResult ="<h4>&nbsp;ダメージ詳細</h4>" +"&nbsp;"+ allRandomDamage;
+
 		//結果を文章として格納
-		result=(int)damageUnder+"～"+totalDamage+"ダメージ("+String.format("%.2f",damageMin)+"%～"+String.format("%.2f",damageMax)+"%)";
+		result=(int)damageUnder+"～"+totalDamage+"ダメージ("
+		+String.format("%.2f",damageMin)+"%～"+String.format("%.2f",damageMax)+"%)<br>"+ randomDamageResult;
+
 
 		return result;
 	}
+
 }

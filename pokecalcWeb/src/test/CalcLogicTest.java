@@ -3,6 +3,8 @@ package test;
 import model.PokeCalcStatus;
 
 public class CalcLogicTest {
+	String randomDamageResult;
+	String allRandomDamage = "";
 
 	public static void main(String[] args) {
 		// TODO 自動生成されたメソッド・スタブ
@@ -29,6 +31,7 @@ public class CalcLogicTest {
 		String result;
 		int atk;
 		double moveValue;
+
 		//ダメージ計算
 
 		//各種アイテム補正（ダメージに倍率がかかるもの以外）
@@ -99,10 +102,21 @@ public class CalcLogicTest {
 		double damageMax =100*(Math.floor(totalDamage)/pcs.getHp());
 		double damageMin =100*(Math.floor(damageUnder)/pcs.getHp());
 
+
+		//取りうるすべてのダメージを表示
+		for(double i=0.85 ; i <= 1 ; i+=0.01) {
+			int randomDamage = (int)Math.floor(totalDamage*i);
+			allRandomDamage += randomDamage+" ";
+		}
+		randomDamageResult ="ダメージ詳細：" + allRandomDamage;
+
 		//結果を文章として格納
-		result=(int)damageUnder+"～"+totalDamage+"ダメージ("+String.format("%.2f",damageMin)+"%～"+String.format("%.2f",damageMax)+"%)";
+		result=(int)damageUnder+"～"+totalDamage+"ダメージ("
+		+String.format("%.2f",damageMin)+"%～"+String.format("%.2f",damageMax)+"%)"+ "\n" + randomDamageResult;
 
 		return result;
 	}
+
+
 
 }

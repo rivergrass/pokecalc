@@ -19,11 +19,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<title>ダメージ計算</title>
+<title>pokecalc</title>
 </head>
 <body>
-<h1>ポケモン簡易ダメージ計算</h1>
+<h1 class = "text-light bg-dark h-auto">pokecalc -ポケモン簡易ダメージ計算 XY～剣盾対応-</h1>
 
+<br>
 <div class="container-fluid">
 	<form action="/pokecalc/calc" method="post">
 
@@ -226,7 +227,7 @@
     <div class="col">
 <div class="border col-10 w-75">
         <br>
-        <h2>&nbsp;計算結果</h2>
+        <h3>&nbsp;計算結果</h3>
         <p>&nbsp;<%= damage %></p>
         <br>
 </div>
