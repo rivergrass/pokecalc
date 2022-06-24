@@ -9,7 +9,7 @@ public class PokeCalcLogic {
 
 		//各種アイテム補正（ダメージに倍率がかかるもの以外）
 
-		//技威力にバフがかかる
+		//技威力にバフがかかる(item)
 		if(pcs.getDamageUpItem() == 1.1) {//技威力1.1
 			moveValue = pcs.getMove()*1.09985;
 		}
@@ -20,7 +20,17 @@ public class PokeCalcLogic {
 			moveValue = pcs.getMove();
 		}
 
-		//攻撃力にバフがかかる
+		//技威力にバフがかかる(特性)
+
+
+		//天候
+
+
+		//フィールド
+
+
+
+		//攻撃力にバフがかかる（持ち物）
 		if(pcs.getDamageUpItem() == 1.5) {//技威力1.5
 			atk =(int)(pcs.getAtk()*1.5);
 		}
@@ -30,6 +40,15 @@ public class PokeCalcLogic {
 		else {
 			atk =pcs.getAtk();
 		}
+
+		//攻撃力にバフがかかる（特性）
+
+
+		//防御にバフがかかる（持ち物）
+
+
+		//防御力にバフがかかる（特性）
+
 
 		//手助けの処理
 		if(pcs.getHelphands() == 1.5) {//てだすけあり
@@ -59,6 +78,9 @@ public class PokeCalcLogic {
 		}else {
 
 		}
+
+		//ダメージに補正が乗る要素
+
 
 		//最小値を計算(乱数の範囲は*0.85～*1.00)
 		double damageUnder =Math.floor(totalDamage*0.85);
