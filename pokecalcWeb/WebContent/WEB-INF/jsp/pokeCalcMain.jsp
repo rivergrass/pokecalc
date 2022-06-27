@@ -6,6 +6,32 @@
    if(damage==null){
 	   damage="ここに計算結果が表示されます";
    }
+
+   String helphandsChecked = (String)request.getAttribute("helphands");
+   if(helphandsChecked==null){
+	   helphandsChecked="0";
+   }
+
+   String typeMatch = (String)request.getAttribute("typeMatch");
+   if(typeMatch==null){
+	   typeMatch="1";
+   }
+
+   String typeCong = (String)request.getAttribute("typeCong");
+   if(typeCong==null){
+	   typeCong="2";
+   }
+
+   String damageType = (String)request.getAttribute("doubleDamage");
+   if(damageType==null){
+	   damageType="1";
+   }
+
+   String atkItem = (String)request.getAttribute("atkItem");
+   if(atkItem==null){
+	   atkItem="0";
+   }
+
    %>
 
 <!DOCTYPE html>
@@ -22,7 +48,8 @@
 <title>pokecalc</title>
 </head>
 <body>
-<h1 class = "text-light bg-dark h-auto">pokecalc -ポケモン簡易ダメージ計算 XY～剣盾対応-</h1>
+
+<h1 class = "text-light bg-dark h-auto">pokecalc -ポケモン簡易ダメージ計算機(XY 剣盾対応)-</h1>
 
 <br>
 <div class="container-fluid">
@@ -91,19 +118,22 @@
 <br>
 <header>タイプ一致</header>
 	<div class="form-check form-check-inline">
-  		<input class="form-check-input" type="radio" name="match" id="match1" value = "0">
+  		<input class="form-check-input" type="radio" name="match" id="match1" value = "0"
+  		<% if(typeMatch.equals("0")){ %>checked<% } %>>
   		<label class="form-check-label" for="match1">
     不一致(1.0)
  		</label>
 	</div>
 	<div class="form-check form-check-inline">
-  		<input class="form-check-input" type="radio" name="match" id="match2" value = "1" checked>
+  		<input class="form-check-input" type="radio" name="match" id="match2" value = "1"
+		<% if(typeMatch.equals("1")){ %>checked<% } %>>
   		<label class="form-check-label" for="match2">
     一致(1.5)
   		</label>
 	</div>
 	<div class="form-check form-check-inline">
- 		 <input class="form-check-input" type="radio" name="match" id="match3"  value = "2">
+ 		 <input class="form-check-input" type="radio" name="match" id="match3"  value = "2"
+ 		 <% if(typeMatch.equals("2")){ %>checked<% } %>>
  		 <label class="form-check-label" for="match3">
     適応力(2.0)
   		</label>
@@ -111,31 +141,36 @@
 
 	<header>相性</header>
 	<div class="form-check form-check-inline">
-  		<input class="form-check-input" type="radio" name="cong" id="cong1" value = "0">
+  		<input class="form-check-input" type="radio" name="cong" id="cong1" value = "0"
+  		<% if(typeCong.equals("0")){ %>checked<% } %>>
   		<label class="form-check-label" for="cong1">
     いまひとつ(1/4)
  		</label>
 	</div>
 	<div class="form-check form-check-inline">
-  		<input class="form-check-input" type="radio" name="cong" id="cong2" value = "1" >
+  		<input class="form-check-input" type="radio" name="cong" id="cong2" value = "1"
+  		<% if(typeCong.equals("1")){ %>checked<% } %>>
   		<label class="form-check-label" for="cong2">
     いまひとつ(1/2)
   		</label>
 	</div>
 	<div class="form-check form-check-inline">
- 		 <input class="form-check-input" type="radio" name="cong" id="cong3"  value = "2" checked>
+ 		 <input class="form-check-input" type="radio" name="cong" id="cong3"  value = "2"
+		<% if(typeCong.equals("2")){ %>checked<% } %>>
  		 <label class="form-check-label" for="cong3">
     等倍(1)
   		</label>
 	</div>
 	<div class="form-check form-check-inline">
- 		 <input class="form-check-input" type="radio" name="cong" id="cong4"  value = "3">
+ 		 <input class="form-check-input" type="radio" name="cong" id="cong4"  value = "3"
+ 		 <% if(typeCong.equals("3")){ %>checked<% } %>>
  		 <label class="form-check-label" for="cong4">
     ばつぐん(2)
   		</label>
 	</div>
 	<div class="form-check form-check-inline">
- 		 <input class="form-check-input" type="radio" name="cong" id="cong5"  value = "4">
+ 		 <input class="form-check-input" type="radio" name="cong" id="cong5"  value = "4"
+ 		 <% if(typeCong.equals("4")){ %>checked<% } %>>
  		 <label class="form-check-label" for="cong5">
     ばつぐん(4)
   		</label>
@@ -143,13 +178,15 @@
 
 	<header>ダメージ</header>
 	<div class="form-check form-check-inline">
-  		<input class="form-check-input" type="radio" name="damage" id="damage1" value = "0">
+  		<input class="form-check-input" type="radio" name="damage" id="damage1" value = "0"
+  		<% if(damageType.equals("0")){ %>checked<% } %>>
   		<label class="form-check-label" for="damage1">
     シングル(1.0)
  		</label>
 	</div>
 	<div class="form-check form-check-inline">
-  		<input class="form-check-input" type="radio" name="damage" id="damage2" value = "1" checked>
+  		<input class="form-check-input" type="radio" name="damage" id="damage2" value = "1"
+  		<% if(damageType.equals("1")){ %>checked<% } %>>
   		<label class="form-check-label" for="damage2">
     ダブル(0.75)
   		</label>
@@ -157,43 +194,50 @@
 
 	<header>アイテム補正</header>
 	<div class="form-check form-check-inline">
-  		<input class="form-check-input" type="radio" name="atkitem" id="atkitem1" value = "0" checked>
+  		<input class="form-check-input" type="radio" name="atkitem" id="atkitem1" value = "0"
+  		<% if(atkItem.equals("0")){ %>checked<% } %>>
   		<label class="form-check-label" for="atkitem1">
     なし
  		</label>
 	</div>
 	<div class="form-check form-check-inline">
-  		<input class="form-check-input" type="radio" name="atkitem" id="atkitem2" value = "1" >
+  		<input class="form-check-input" type="radio" name="atkitem" id="atkitem2" value = "1"
+  		<% if(atkItem.equals("1")){ %>checked<% } %>>
   		<label class="form-check-label" for="atkitem2">
     1.1
   		</label>
 	</div>
 	<div class="form-check form-check-inline">
- 		 <input class="form-check-input" type="radio" name="atkitem" id="atkitem3"  value = "2" >
+ 		 <input class="form-check-input" type="radio" name="atkitem" id="atkitem3"  value = "2"
+ 		 <% if(atkItem.equals("2")){ %>checked<% } %>>
  		 <label class="form-check-label" for="atkitem3">
     1.2(タイプ強化系)
   		</label>
 	</div>
 	<div class="form-check form-check-inline">
- 		 <input class="form-check-input" type="radio" name="atkitem" id="atkitem4"  value = "3" >
+ 		 <input class="form-check-input" type="radio" name="atkitem" id="atkitem4"  value = "3"
+ 		 <% if(atkItem.equals("3")){ %>checked<% } %>>
  		 <label class="form-check-label" for="atkitem4">
     1.2(達人の帯)
   		</label>
 	</div>
 	<div class="form-check form-check-inline">
- 		 <input class="form-check-input" type="radio" name="atkitem" id="atkitem5"  value = "4">
+ 		 <input class="form-check-input" type="radio" name="atkitem" id="atkitem5"  value = "4"
+ 		 <% if(atkItem.equals("4")){ %>checked<% } %>>
  		 <label class="form-check-label" for="atkitem5">
     1.3
   		</label>
 	</div>
 	<div class="form-check form-check-inline">
- 		 <input class="form-check-input" type="radio" name="atkitem" id="atkitem6"  value = "5">
+ 		 <input class="form-check-input" type="radio" name="atkitem" id="atkitem6"  value = "5"
+ 		 <% if(atkItem.equals("5")){ %>checked<% } %>>
  		 <label class="form-check-label" for="atkitem6">
     1.5
   		</label>
 	</div>
 		<div class="form-check form-check-inline">
- 		 <input class="form-check-input" type="radio" name="atkitem" id="atkitem7"  value = "6">
+ 		 <input class="form-check-input" type="radio" name="atkitem" id="atkitem7"  value = "6"
+ 		 <% if(atkItem.equals("6")){ %>checked<% } %>>
  		 <label class="form-check-label" for="atkitem7">
     2.0
   		</label>
@@ -201,19 +245,22 @@
 
 	<header>てだすけ</header>
 	<div class="form-check form-check-inline">
-  		<input class="form-check-input" type="radio" name="helphands" id="helphands1" value = "0" checked>
+  		<input class="form-check-input" type="radio" name="helphands" id="helphands1" value = "0"
+  		 <% if(helphandsChecked.equals("0")){ %>checked<% } %>>
   		<label class="form-check-label" for="helphands1">
    	なし
  		</label>
 	</div>
 	<div class="form-check form-check-inline">
-  		<input class="form-check-input" type="radio" name="helphands" id="helphands2" value = "1" >
+  		<input class="form-check-input" type="radio" name="helphands" id="helphands2" value = "1"
+  		<% if(helphandsChecked.equals("1")){ %>checked<% } %>>
   		<label class="form-check-label" for="helphands2">
      あり(1.5)
   		</label>
 	</div>
 		<div class="form-check form-check-inline">
-  		<input class="form-check-input" type="radio" name="helphands" id="helphands3" value = "2" >
+  		<input class="form-check-input" type="radio" name="helphands" id="helphands3" value = "2"
+  		<% if(helphandsChecked.equals("2")){ %>checked<% } %>>
   		<label class="form-check-label" for="helphands3">
      重ね掛け(2.25)（トリプル用）
   		</label>
@@ -221,18 +268,18 @@
 
 	</form>
 </div>
-<br><br>
+<br>
 <div class="container">
-  <div class="row">
-    <div class="col">
-<div class="border col-10 w-75">
-        <br>
-        <h3>&nbsp;計算結果</h3>
-        <p>&nbsp;<%= damage %></p>
-        <br>
-</div>
-</div>
-</div>
+	<div class="row">
+		<div class="col">
+			<div class="border col-10 w-75">
+<br>
+        	<h3>&nbsp;計算結果</h3>
+        	<p>&nbsp;<%= damage %></p>
+<br>
+			</div>
+		</div>
+	</div>
 </div>
 
 <br>

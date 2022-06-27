@@ -110,7 +110,13 @@ public class CalcServlet extends HttpServlet {
 		String damage =pcl.calc(pcs);
 
 		//リクエストスコープ
-		request.setAttribute("damage",damage);
+		request.setAttribute("damage", damage);
+		request.setAttribute("typeMatch",match);
+		request.setAttribute("typeCong", cong);
+		request.setAttribute("doubleDamage", doubleDamage);
+		request.setAttribute("atkItem", atkItem);
+		request.setAttribute("helphands", helphands);
+
 
 		//フォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/pokeCalcMain.jsp");
