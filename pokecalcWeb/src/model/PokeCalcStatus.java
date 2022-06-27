@@ -15,7 +15,11 @@ public class PokeCalcStatus implements Serializable{
 	private double typeMatch;
 	private double typeCong;
 	private double doubleDamage;
-	private double damageUp;
+	private double damageUpItem;
+	private double helphands;
+
+	private double damageMax;
+	private double damageMin;
 
 	public void setAtkLevel(int atkLevel) {
 		this.atkLevel = atkLevel;
@@ -51,8 +55,20 @@ public class PokeCalcStatus implements Serializable{
 		this.doubleDamage = doubleDamage;
 	}
 
-	public void setDamageUp(double damageUp) {
-		this.damageUp = damageUp;
+	public void setDamageUpItem(double damageUpItem) {
+		this.damageUpItem = damageUpItem;
+	}
+
+	public void setHelphands(double helphands) {
+		this.helphands =helphands;
+	}
+
+	public void setDamageMax(double damageMax) {
+		this.damageMax =damageMax;
+	}
+
+	public void setDamageMin(double damageMin) {
+		this.damageMin =damageMin;
 	}
 
 	public int getAtkLevel() {
@@ -90,8 +106,19 @@ public class PokeCalcStatus implements Serializable{
 	public double getDoubleDamage() {
 		return this.doubleDamage;
 	}
-	public double getDamageUp() {
-		return this.damageUp;
+	public double getDamageUpItem() {
+		return this.damageUpItem;
+	}
+	public double getHelphands() {
+		return this.helphands;
+	}
+
+	public double getDamageMax() {
+		return this.damageMax;
+	}
+
+	public double getDamageMin() {
+		return this.damageMin;
 	}
 
 

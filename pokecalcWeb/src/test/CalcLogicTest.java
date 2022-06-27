@@ -1,18 +1,42 @@
-package model;
+package test;
 
-public class PokeCalcLogic {
-	String result;
-	int atk;
-	double moveValue;
+import model.PokeCalcStatus;
+
+public class CalcLogicTest {
 	String randomDamageResult;
 	String allRandomDamage = "";
 
+	public static void main(String[] args) {
+		// TODO 自動生成されたメソッド・スタブ
+		PokeCalcStatus pcs = new PokeCalcStatus();
+		CalcLogicTest clt = new CalcLogicTest();
+		pcs.setAtkLevel(50);
+		pcs.setMove(100);
+		pcs.setAtk(182);
+		pcs.setDefLevel(50);
+		pcs.setHp(145);
+		pcs.setDef(95);
+		pcs.setTypeMatch(1);
+		pcs.setTypeCong(1.5);
+		pcs.setDoubleDamage(0.75);
+		pcs.setDamageUpItem(1);
+		pcs.setHelphands(1.5);
+
+		System.out.println(clt.calc(pcs));
+
+	}
+
+
 	public String calc(PokeCalcStatus pcs) {
+		String result;
+		int atk;
+		double moveValue;
+
 		//ダメージ計算
 
 		//各種アイテム補正（ダメージに倍率がかかるもの以外）
 
-		//技威力にバフがかかる(item)
+		//技威力にバフがかかる
 		if(pcs.getDamageUpItem() == 1.1) {//技威力1.1
 			moveValue = pcs.getMove()*1.09985;
 		}
@@ -23,16 +47,7 @@ public class PokeCalcLogic {
 			moveValue = pcs.getMove();
 		}
 
-		//技威力にバフがかかる(特性)
-
-
-		//天候
-
-
-		//フィールド
-
-
-		//攻撃力にバフがかかる（持ち物）
+		//攻撃力にバフがかかる
 		if(pcs.getDamageUpItem() == 1.5) {//技威力1.5
 			atk =(int)(pcs.getAtk()*1.5);
 		}
@@ -42,15 +57,6 @@ public class PokeCalcLogic {
 		else {
 			atk =pcs.getAtk();
 		}
-
-		//攻撃力にバフがかかる（特性）
-
-
-		//防御にバフがかかる（持ち物）
-
-
-		//防御力にバフがかかる（特性）
-
 
 		//手助けの処理
 		if(pcs.getHelphands() == 1.5) {//てだすけあり
@@ -81,9 +87,6 @@ public class PokeCalcLogic {
 
 		}
 
-		//ダメージに補正が乗る要素
-
-
 		//最小値を計算(乱数の範囲は*0.85～*1.00)
 		double damageUnder =Math.floor(totalDamage*0.85);
 
@@ -99,19 +102,21 @@ public class PokeCalcLogic {
 		double damageMax =100*(Math.floor(totalDamage)/pcs.getHp());
 		double damageMin =100*(Math.floor(damageUnder)/pcs.getHp());
 
+
 		//取りうるすべてのダメージを表示
 		for(double i=0.85 ; i <= 1 ; i+=0.01) {
 			int randomDamage = (int)Math.floor(totalDamage*i);
 			allRandomDamage += randomDamage+" ";
 		}
-		randomDamageResult ="<h4>&nbsp;ダメージ詳細</h4>" +"&nbsp;"+ allRandomDamage;
+		randomDamageResult ="ダメージ詳細：" + allRandomDamage;
 
 		//結果を文章として格納
 		result=(int)damageUnder+"～"+totalDamage+"ダメージ("
-		+String.format("%.2f",damageMin)+"%～"+String.format("%.2f",damageMax)+"%)<br>"+ randomDamageResult;
-
+		+String.format("%.2f",damageMin)+"%～"+String.format("%.2f",damageMax)+"%)"+ "\n" + randomDamageResult;
 
 		return result;
 	}
+
+
 
 }
